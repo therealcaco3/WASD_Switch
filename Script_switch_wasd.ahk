@@ -1,4 +1,4 @@
-﻿~Alt::
+~Alt::
 	if IsDoubleClick() {
 		RemapKeys := !RemapKeys
 		if RemapKeys
@@ -48,6 +48,16 @@ ShowTransText(Text := "", X := 0, Y := 0, objOptions := "") {
 	WinSet, Transparent, % o.transN, ahk_id %hGUI%
 }
 
-^!F12::  ; Ctrl + Alt + F12 用於關閉腳本
+; 暫時停用/啟用腳本的快捷鍵
+^!F11::  ; Ctrl + Alt + F11
+    Suspend, Toggle
+    if (Suspend)
+        Tooltip Script 已暫停
+    else
+        Tooltip
+return
+
+; Ctrl + Alt + F12 用於關閉腳本
+^!F12::
     ExitApp
 return
